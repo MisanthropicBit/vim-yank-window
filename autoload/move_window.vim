@@ -48,4 +48,40 @@ function! move_window#paste(dir, full_width) abort
     let cmd_prefix = s:get_split_prefixes(a:dir, a:full_width)
 
     execute printf('%s sbuffer %d', cmd_prefix, s:yanked_buffer)
+    let win_id = win_getid()
+
+    if a:full_width
+        call move_window#paste_full(a:dir)
+        call win_gotoid(win_id)
+    endif
+endfunction
+
+function! move_window#paste_full(dir) abort
+    let dir = a:dir[0]
+    let win_ids = []
+    let i = 2
+    let winnr = winnr('1' . dir)
+    call add(win_ids, win_getid(winnr))
+
+    while 1
+        let next_winnr = winnr(i . dir)
+
+        if winnr == next_winnr
+            break
+        endif
+
+        let winnr = next_winnr
+        call add(win_ids, win_getid(next_winnr))
+        let i += 1
+    endwhile
+
+    for win_id in win_ids
+        execute printf('%dclose!', win_id2win(win_id))
+    endfor
+
+    wincmd j
+
+    for win_id in win_ids
+        execute printf('rightbelow vert sbuffer %d', winbufnr(win_id2win(win_id)))
+    endfor
 endfunction
