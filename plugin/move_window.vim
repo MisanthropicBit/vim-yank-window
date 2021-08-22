@@ -5,6 +5,11 @@ endif
 let s:cpo_save = &cpoptions
 let s:move_window_version = '0.1.0'
 
+" Return the current version
+function! MoveWindowVersion() abort
+    return s:move_window_version
+endfunction
+
 let g:move_window#enable_mappings = get(g:, 'move_window#enable_mappings', 1)
 
 nnoremap <silent> <Plug>(YankWindow)        :<c-u>call move_window#yank(0)<cr>
