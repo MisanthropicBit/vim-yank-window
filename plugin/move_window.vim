@@ -22,10 +22,10 @@ nnoremap <silent> <Plug>(PasteWindowRight)  :<c-u>call move_window#paste('right'
 if g:move_window#enable_mappings
     nmap <silent> <c-w>yy <Plug>(YankWindow)
     nmap <silent> <c-w>yq <Plug>(YankWindowAndQuit)
-    nmap <silent> <c-w>yl <Plug>(PasteWindowLeft)
+    nmap <silent> <c-w>yl <Plug>(PasteWindowRight)
     nmap <silent> <c-w>yj <Plug>(PasteWindowDown)
     nmap <silent> <c-w>yk <Plug>(PasteWindowUp)
-    nmap <silent> <c-w>yh <Plug>(PasteWindowRight)
+    nmap <silent> <c-w>yh <Plug>(PasteWindowLeft)
 endif
 
 let g:move_window#loaded = 1
