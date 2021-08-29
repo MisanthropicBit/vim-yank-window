@@ -17,7 +17,12 @@
   </p>
 </div>
 
-A small plugin for moving windows using yank and paste.
+Use `<c-w>yy` to yank the current window and `<c-w>yq` to yank and quit the
+current window.
+
+Then navigate to another window and paste the yanked window relative to the
+current window using `<c-w>yh` (left), `<c-w>yj` (down), `<c-w>yk` (up), or
+`<c-w>yl` (right).
 
 ## Installation
 
