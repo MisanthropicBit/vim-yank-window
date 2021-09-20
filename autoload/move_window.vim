@@ -25,6 +25,10 @@ function! s:get_split_prefixes(dir, full_width) abort
         return 'leftabove'
     elseif a:dir ==# 'right'
         return 'rightbelow vert'
+    elseif a:dir ==# 'tab-after'
+        return 'tab'
+    elseif a:dir ==# 'tab-before'
+        return '-tab'
     else
         throw printf("Unknown direction '%s'", a:dir)
     endif
