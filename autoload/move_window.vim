@@ -56,6 +56,89 @@ function! move_window#paste(dir, full_width) abort
     endif
 endfunction
 
+" function! move_window#find_column(winid, node) abort
+"     if a:node[0] ==# 'leaf'
+"         if a:node[1] == a:winid
+"             return 1
+"         endif
+"     else
+"         if a:node[0] ==# 'col'
+"             let col = a:node[0]
+"         endif
+
+"         for subtree in a:node[1]
+"             let found = move_window#find_column(a:winid, subtree)
+            
+"             if !empty(found)
+"                 return col
+"             endif
+"         endfor
+"     endif
+" endfunction
+
+function! move_window#find_outermost(type, node, row_or_col, winid) abort
+    if a:node[0] ==# 'leaf'
+        return a:node[1] == a:winid ? a:row_or_col : []
+    else
+        let row_or_col = (a:node[0] ==# a:type && empty(a:row_or_col)) ? a:node : a:row_or_col
+
+        for subtree in a:node[1]
+            let result = move_window#find_outermost(a:type, subtree, row_or_col, a:winid)
+
+            if !empty(result)
+                return result
+            endif
+        endfor
+    endif
+endfunction
+
+function! move_window#find_innermost(type, node, row_or_col, winid) abort
+    if a:node[0] ==# 'leaf'
+        return a:node[1] == a:winid ? a:row_or_col : []
+    else
+        let row_or_col = a:node[0] ==# a:type ? a:node : a:row_or_col
+
+        for subtree in a:node[1]
+            let result = move_window#find_innermost(a:type, subtree, row_or_col, a:winid)
+
+            if !empty(result)
+                return result
+            endif
+        endfor
+    endif
+endfunction
+
+function! move_window#move(winid, dir) abort
+    if a:dir ==# 'left' || a:dir ==# 'right'
+        let col = move_window#find_innermost('col', winlayout(), [], a:winid)
+        let source_columns = move_window#column_size(row)
+        let neighbour = move_window#find_neighbour(row, a:dir)
+        let target_columns = move_window#column_size(neighbour)
+
+        if source_columns > target_columns
+            " Fit the current window into the next row
+        else 
+        endif
+
+        let source_buffer = bufnr()
+        close
+        call win_gotoid(target_winid)
+        execute printf('rightbelow vertical sbuffer %d', source_buffer)
+
+        let leaf_pos = 0
+        let neighbour = row[leaf_pos + 1]
+
+        if neighbour[0] ==# 'leaf'
+            return
+        elseif neighbour ==# 'col'
+        else
+            echoerr '???'
+        endif
+    elseif a:dir ==# 'up' || a:dir ==# 'down'
+    else
+        echoerr printf("vim-move-window: Unknown direction '%s'", a:dir)
+endfunction
+
 function! move_window#paste_full(dir) abort
     let dir = a:dir[0]
     let win_ids = []
