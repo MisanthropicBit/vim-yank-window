@@ -1,6 +1,6 @@
 let s:yanked_buffer = -1
 
-function! move_window#yank(quit) abort
+function! yank_window#yank(quit) abort
     let s:yanked_buffer = bufnr()
 
     if a:quit
@@ -34,7 +34,7 @@ function! s:get_split_prefixes(dir, full_width) abort
     endif
 endfunction
 
-function! move_window#paste(dir, full_width) abort
+function! yank_window#paste(dir, full_width) abort
     if s:yanked_buffer == -1
         echo 'No yanked buffer'
         return

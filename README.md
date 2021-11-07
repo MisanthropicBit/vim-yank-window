@@ -1,17 +1,17 @@
 <div align="center">
-  <h1>vim-move-window</h1>
+  <h1>vim-yank-window</h1>
   <p>Move windows around using yank and paste</p>
   <p>
     <img src="https://img.shields.io/badge/version-0.1.0--alpha-orange" />
-    <a href="https://github.com/MisanthropicBit/vim-move-window/actions?query=workflow%3A%22Run+vader+tests%22">
-        <img src="https://img.shields.io/github/workflow/status/MisanthropicBit/vim-move-window/Run%20vader%20tests/master" />
+    <a href="https://github.com/MisanthropicBit/vim-yank-window/actions?query=workflow%3A%22Run+vader+tests%22">
+        <img src="https://img.shields.io/github/workflow/status/MisanthropicBit/vim-yank-window/Run%20vader%20tests/master" />
     </a>
-    <a href="https://coveralls.io/github/MisanthropicBit/vim-move-window?branch=master">
-        <img src="https://coveralls.io/repos/github/MisanthropicBit/vim-move-window/badge.svg?branch=master" alt="Coverage Status" />
+    <a href="https://coveralls.io/github/MisanthropicBit/vim-yank-window?branch=master">
+        <img src="https://coveralls.io/repos/github/MisanthropicBit/vim-yank-window/badge.svg?branch=master" alt="Coverage Status" />
     </a>
     <a href="/LICENSE">
         <img
-        src="https://img.shields.io/github/license/MisanthropicBit/vim-move-window" />
+        src="https://img.shields.io/github/license/MisanthropicBit/vim-yank-window" />
     </a>
     <img src="https://img.shields.io/badge/compatible-neovim-blueviolet" />
   </p>
@@ -27,10 +27,10 @@ current window using `<c-w>yh` (left), `<c-w>yj` (down), `<c-w>yk` (up), or
 ## Installation
 
 * [NeoBundle](https://github.com/Shougo/neobundle.vim):
-  `NeoBundle 'MisanthropicBit/vim-move-window'`
+  `NeoBundle 'MisanthropicBit/vim-yank-window'`
 * [VAM](https://github.com/MarcWeber/vim-addon-manager):
-  `call vam#ActivateAddons(['MisanthropicBit/vim-move-window'])`
+  `call vam#ActivateAddons(['MisanthropicBit/vim-yank-window'])`
 * [Vundle](https://github.com/VundleVim/Vundle.vim):
-  `Plugin 'MisanthropicBit/vim-move-window'`
+  `Plugin 'MisanthropicBit/vim-yank-window'`
 * [vim-plug](https://github.com/junegunn/vim-plug):
-  `Plug 'MisanthropicBit/vim-move-window'`
+  `Plug 'MisanthropicBit/vim-yank-window'`

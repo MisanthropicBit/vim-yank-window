@@ -1,2 +1,2 @@
 Execute (check current version):
-  AssertEqual MoveWindowVersion(), '0.1.0'
+  AssertEqual YankWindowVersion(), '0.1.0'
