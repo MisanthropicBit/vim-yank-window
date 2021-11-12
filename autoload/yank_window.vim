@@ -1,19 +1,28 @@
 let s:yanked_buffer = -1
 
-function! yank_window#yank(quit) abort
+function! yank_window#yank() abort
     let s:yanked_buffer = bufnr()
+    let winnr = winnr()
 
-    if a:quit
-        if tabpagenr('$') == 1 && winnr('$') == 1
-            echom 'Cannot yank and quit current window since it is the only open window'
-            return
-        endif
+    echom printf(
+        \'Yanked window winid: %d, winnr:%d, bufnr:%d tabpage:%d',
+        \win_getid(winnr),
+        \winnr,
+        \s:yanked_buffer,
+        \tabpagenr()
+    \)
+endfunction
 
-        " Close the window into the buffer, not the buffer itself
-        close
+function! yank_window#yank_and_quit() abort
+    if tabpagenr('$') == 1 && winnr('$') == 1
+        echom 'Cannot yank and quit current window since it is the only open window'
+        return
     endif
 
-    echom printf('Yanked window winnr:%d, bufnr:%d tabpage:%d', winnr(), bufnr(), tabpagenr())
+    let s:yanked_buffer = bufnr()
+
+    " Close the window into the buffer, not the buffer itself
+    close
 endfunction
 
 function! s:get_split_prefixes(dir, full_width) abort

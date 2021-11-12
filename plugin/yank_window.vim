@@ -12,8 +12,8 @@ endfunction
 
 let g:yank_window#enable_mappings = get(g:, 'yank_window#enable_mappings', 1)
 
-nnoremap <silent> <Plug>(YankWindow)           :<c-u>call yank_window#yank(0)<cr>
-nnoremap <silent> <Plug>(YankWindowAndQuit)    :<c-u>call yank_window#yank(1)<cr>
+nnoremap <silent> <Plug>(YankWindow)           :<c-u>call yank_window#yank()<cr>
+nnoremap <silent> <Plug>(YankWindowAndQuit)    :<c-u>call yank_window#yank_and_quit()<cr>
 nnoremap <silent> <Plug>(PasteWindowLeft)      :<c-u>call yank_window#paste('left', 0)<cr>
 nnoremap <silent> <Plug>(PasteWindowDown)      :<c-u>call yank_window#paste('down', 0)<cr>
 nnoremap <silent> <Plug>(PasteWindowUp)        :<c-u>call yank_window#paste('up', 0)<cr>
