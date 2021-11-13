@@ -3,7 +3,7 @@ if &compatible || exists('g:yank_window#loaded')
 endif
 
 let s:cpo_save = &cpoptions
-let s:yank_window_version = '0.1.0'
+let s:yank_window_version = '1.0.0'
 
 " Return the current version
 function! YankWindowVersion() abort

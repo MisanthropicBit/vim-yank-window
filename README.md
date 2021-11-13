@@ -2,7 +2,7 @@
   <h1>vim-yank-window</h1>
   <p><i>Move windows around using yank and paste</i></p>
   <p>
-    <img src="https://img.shields.io/badge/version-0.1.0--alpha-orange" />
+    <img src="https://img.shields.io/badge/version-1.0.0-blue" />
     <a href="https://github.com/MisanthropicBit/vim-yank-window/actions?query=workflow%3A%22Run+vader+tests%22">
         <img src="https://img.shields.io/github/workflow/status/MisanthropicBit/vim-yank-window/Run%20vader%20tests/master" />
     </a>
