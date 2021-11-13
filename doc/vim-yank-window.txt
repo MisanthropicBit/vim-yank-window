@@ -1,0 +1,124 @@
+*vim-yank-window.txt* Yank and paste windows         *vim-yank-window* *yank-window*
+
+         █ █ █ █▀▄▀█ ▄▄ █ █ ███ █▚ █ █▄▀ ▄▄ █  █ █ █▄ █ █▀▚ █▀█ █  █
+         ▀▄▀ █ █ ▀ █     █  █ █ █ ▚█ █ ▇    █▞▚█ █ █ ▀█ █▄▞ █▅█ █▞▚█ 
+
+                               Version 1.0.1 ~
+
+==============================================================================
+INTRODUCTION                                             *vim-yank-window-intro*
+
+vim-yank-window is a small plugin for moving windows around using yanking and
+pasting as an alternative to manually finding the buffer number and splitting
+windows.
+
+Although this plugin mentions windows in its name, it essentially moves the
+underlying buffer around which means you should not rely on the moved window
+being the same, although the buffer will be.
+
+==============================================================================
+USAGE                                                    *vim-yank-window-usage*
+
+1. Navigate to a window and yank it via default is <c-w>yy.
+2. Navigate to another window relative to where you want to paste the yanked
+   window.
+3. Paste the yanked window using either <c-w>yh, <c-w>yj, <c-w>yk, or <c-w>yl
+   for the direction you want or to a new tab page before (<c-w>yT) or after
+   (<c-w>yt).
+
+==============================================================================
+REQUIREMENTS                                      *vim-yank-window-requirements*
+
+This plugin has no requirements.
+
+==============================================================================
+CONFIGURATION                                    *vim-yank-window-configuration*
+
+The given values for the configuration variables below are the defaults.
+
+* Enable all plugin mappings. >
+    let g:yank_window#enable_mappings = 0
+<
+==============================================================================
+MAPPINGS                                              *vim-yank-window-mappings*
+
+Default mappings are available if g:yank_window#enable_mappings is set to 1.
+
+                                                                     *CTRL-W_yy*
+CTRL-W yy   Yank the current window.
+
+                                                                     *CTRL-W_yq*
+CTRL-W yq   Yank and quit the current window.
+
+                                                                     *CTRL-W_yh*
+CTRL-W yh   Paste a yanked window to the left of the current window.
+
+                                                                     *CTRL-W_yj*
+CTRL-W yj   Paste a yanked window below the current window.
+
+                                                                     *CTRL-W_yk*
+CTRL-W yk   Paste a yanked window above the current window.
+
+                                                                     *CTRL-W_yl*
+CTRL-W yl   Paste a yanked window to the right of the current window.
+
+                                                                     *CTRL-W_yt*
+CTRL-W yt   Paste a yanked window to a new tab after the current tab page.
+            Note that you can also use vim's built-in <c-w>T mapping for moving
+            the current window to a new tab page.
+
+                                                                     *CTRL-W_yT*
+CTRL-W yT   Paste a yanked window to a new tab before the current tab page.
+
+Plugin mappings are also available if you want to rebind the default text
+object mappings.
+
+<Plug>(YankWindow)                                           *:plug-yank-window*
+    Yank the current window.
+
+<Plug>(YankWindowAndQuit)                               *:plug-yank-window-quit*
+    Yank and quit the current window.
+
+<Plug>(PasteWindowLeft)                                *:plug-paste-window-left*
+    Paste a yanked window to the left of the current window.
+
+<Plug>(PasteWindowDown)                                *:plug-paste-window-down*
+    Paste a yanked window below the current window.
+
+<Plug>(PasteWindowUp)                                    *:plug-paste-window-up*
+    Paste a yanked window above the current window.
+
+<Plug>(PasteWindowRight)                              *:plug-paste-window-right*
+    Paste a yanked window to the right of the current window.
+
+<Plug>(PasteWindowTabAfter)                       *:plug-paste-window-tab-after*
+    Paste a yanked window to a new tab after the current tab page. Note that
+    you can also use vim's built-in <c-w>T mapping for moving the current
+    window to a new tab page.
+
+<Plug>(PasteWindowTabBefore)                     *:plug-paste-window-tab-before*
+    Paste a yanked window to a new tab before the current tab page.
+
+==============================================================================
+FUNCTIONS                                            *vim-yank-window-functions*
+
+                                                        *VimYankWindowVersion()*
+VimTankWindowVersion()            Returns the current version of the plugin.
+
+==============================================================================
+CONTRIBUTIONS                                    *vim-yank-window-contributions*
+
+Contributions through pull requests are always welcome. Please see
+CONTRIBUTING.md for details on how to contribute.
+
+==============================================================================
+AUTHOR                                                  *vim-yank-window-author*
+
+Alexander Asp Bock (https://github.com/MisanthropicBit/vim-yank-window).
+
+==============================================================================
+LICENSE                                                *vim-yank-window-license*
+
+BSD 3-Clause License. Copyright © 2021 Alexander Asp Bock
+
+ vim:tw=78:ts=8:ft=help:norl:
