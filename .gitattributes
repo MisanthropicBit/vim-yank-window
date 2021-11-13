@@ -1,0 +1,8 @@
+.coveragerc export-ignore
+.github/    export-ignore
+.gitignore  export-ignore
+.vintrc.yml export-ignore
+LICENSE     export-ignore
+*.md        export-ignore
+doc/tags    export-ignore
+tests/      export-ignore
