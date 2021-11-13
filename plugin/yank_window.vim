@@ -10,7 +10,7 @@ function! YankWindowVersion() abort
     return s:yank_window_version
 endfunction
 
-let g:yank_window#enable_mappings = get(g:, 'yank_window#enable_mappings', 1)
+let g:yank_window#enable_mappings = get(g:, 'yank_window#enable_mappings', 0)
 
 nnoremap <silent> <Plug>(YankWindow)           :<c-u>call yank_window#yank()<cr>
 nnoremap <silent> <Plug>(YankWindowAndQuit)    :<c-u>call yank_window#yank_and_quit()<cr>
