@@ -1,6 +1,6 @@
 <div align="center">
   <h1>vim-yank-window</h1>
-  <p>Move windows around using yank and paste</p>
+  <p><i>Move windows around using yank and paste</i></p>
   <p>
     <img src="https://img.shields.io/badge/version-0.1.0--alpha-orange" />
     <a href="https://github.com/MisanthropicBit/vim-yank-window/actions?query=workflow%3A%22Run+vader+tests%22">
@@ -17,12 +17,18 @@
   </p>
 </div>
 
-Use `<c-w>yy` to yank the current window and `<c-w>yq` to yank and quit the
-current window.
+**Simple usage:**
 
-Then navigate to another window and paste the yanked window relative to the
-current window using `<c-w>yh` (left), `<c-w>yj` (down), `<c-w>yk` (up), or
-`<c-w>yl` (right).
+1. Use `<c-w>yy` to yank the current window or `<c-w>yq` to yank and quit the
+   current window.
+
+2. Navigate to another window and paste the yanked window relative to it:
+   * `<c-w>yh` (left)
+   * `<c-w>yj` (down)
+   * `<c-w>yk` (up)
+   * `<c-w>yl` (right)
+   * `<c-w>yt` (a new tab page after the current one)
+   * `<c-w>yT` (a new tab page before the current one)
 
 ## Installation
 
